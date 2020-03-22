@@ -31,13 +31,14 @@
 
 body{
     overflow-x: none !important;
+    margin: 0;
 }
 
 .container{
+    width: 100%;
     max-width:1160px;
     padding: 0 10px;
     margin: 0 auto;
-    width: 100%;
 }
 
 .container-inner{
@@ -61,9 +62,11 @@ ul{
 *,
 *:before,
 *:after{
-    margin: 0px;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 a{
@@ -71,6 +74,14 @@ a{
 }
 /* ----header---- */
 
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #fff;
+}
 
 .header-inner{
     display: flex;
@@ -79,6 +90,15 @@ a{
     justify-content: space-between;
     padding: 30px 0px;
     font-family: 'OpenSans', sans-serif;
+}
+
+.fixed{
+    position: fixed;
+    max-width: 100%;
+    /* z-index: 5;
+    background: #fff;
+    height: auto;
+    width: 100%; */
 }
 
 
@@ -102,24 +122,14 @@ a{
 }
 
 header.fixed .header-inner{
-    padding: 20px 0px;
-    text-align: center;
-    align-items: center;
-    justify-content: space-between;
-    
+    padding: 15px 0px;
 }
 
 header.fixed{
     border-bottom: 1px solid #202020;
 }
 
-.fixed{
-    position: fixed;
-    z-index: 5;
-    background-color: #fff;
-    z-index: 1000;
-    width: 100%;
-}
+
 
 .burger{
     display: none;
@@ -687,7 +697,6 @@ header.fixed{
     background-color: #00897b;
     color: #fff;
     border: 2px solid #00897b;
-    /* border-radius: 30px; */
 }
 
 /* team section  */
@@ -1093,8 +1102,7 @@ footer{
 
 }
 
-@media (max-width:768px){
-
+@media (max-width:1024px){
     header{
         position: relative;
     }
@@ -1120,7 +1128,6 @@ footer{
 
     .burger{
         display: block;
-        margin-right: 20px;
     }
 
    .about-us-inner .about-us-txt .description,
@@ -1200,7 +1207,26 @@ footer{
 
 }
 
+@media (max-width: 753px){
+    header.fixed .logo{
+        position: absolute;
+        right: 20%;
+    }
+
+    header .nav{
+        display: none;
+        position: absolute;
+        top: 101%;
+        right: 0%;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        background-color: #ffffff;
+    }
+}
+
 @media (max-width:425px){
+
     .intro-buttons button{
         padding: 15px 25px;
     }
@@ -1314,8 +1340,6 @@ footer{
         flex-direction: column;
     }
 
-
-  
     .top-forms{
         flex-direction: column;
     }
